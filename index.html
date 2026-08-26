@@ -246,12 +246,12 @@ header.on-light .btn.light:hover{background:var(--ink);color:var(--cream)}
 
 /* cta */
 .cta{padding:150px 0;background:var(--charcoal);color:var(--cream)}
-.cta h2{font-family:var(--serif);font-size:clamp(42px,7vw,88px);font-weight:400;line-height:1.05;max-width:900px}
+.cta h2{font-family:var(--serif);font-size:clamp(42px,7vw,88px);font-weight:400;line-height:1.05;max-width:900px;overflow-wrap:break-word}
 .cta h2 em{font-style:normal;color:var(--gold-light)}
 .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;margin-top:56px}
 .cta p{color:rgba(239,233,221,.65);max-width:420px}
 .form{display:flex;flex-direction:column;gap:18px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
 .form input,.form select,.form textarea{background:transparent;border:none;border-bottom:1px solid rgba(239,233,221,.28);padding:14px 2px;color:var(--cream);font-family:var(--sans);font-size:14px;transition:border-color .3s}
 .form input::placeholder,.form textarea::placeholder{color:rgba(239,233,221,.4)}
 .form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
