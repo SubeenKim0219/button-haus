@@ -97,7 +97,7 @@ header.on-light .btn.light:hover{background:var(--ink);color:var(--cream)}
 .story-heading{text-align:center;max-width:520px;margin:120px auto 50px}
 .story-heading h2{font-family:var(--head-font);font-size:28px;font-weight:400;margin-bottom:14px}
 .selector-options{display:flex;width:100%;height:400px;gap:14px}
-.selector-option{position:relative;flex:1 1 0%;min-width:60px;margin:0;border-radius:20px;overflow:hidden;cursor:pointer;background-repeat:no-repeat;background-position:center;background-size:auto 120%;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transform:translateX(-40px);transition:flex-grow .7s cubic-bezier(.4,0,.2,1),box-shadow .7s,background-size .7s}
+.selector-option{position:relative;flex:1 1 0%;min-width:60px;margin:0;border-radius:20px;overflow:hidden;cursor:pointer;background-repeat:no-repeat;background-position:center;background-size:auto 120%;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transform:translateX(-40px);transition:flex-grow .7s cubic-bezier(.4,0,.2,1),box-shadow .7s,background-size .7s;-webkit-mask-image:-webkit-radial-gradient(white,black)}
 .selector-option.in{opacity:1;transform:translateX(0);transition:opacity .8s ease,transform .8s ease,flex-grow .7s cubic-bezier(.4,0,.2,1),box-shadow .7s,background-size .7s}
 .selector-option.active{flex:7 1 0%;background-size:auto 100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .selector-shadow{position:absolute;left:0;right:0;bottom:-40px;height:120px;pointer-events:none;transition:bottom .7s,box-shadow .7s;box-shadow:inset 0 -120px 0 -120px #000,inset 0 -120px 0 -80px #000}
@@ -110,7 +110,7 @@ header.on-light .btn.light:hover{background:var(--ink);color:var(--cream)}
 .selector-sub{font-size:12.5px;color:rgba(239,233,221,.7);margin-top:2px;opacity:0;transform:translateX(20px);transition:opacity .6s,transform .6s}
 .selector-option.active .selector-main,.selector-option.active .selector-sub{opacity:1;transform:translateX(0)}
 @media(max-width:640px){
-  .selector-options{height:280px;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .selector-options{width:640px;height:280px;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .selector-option{min-width:60px}
   .selector-label{bottom:12px;padding:0 10px}
   .selector-main{font-size:14px}
@@ -596,7 +596,7 @@ html[data-energy="dynamic"] .philosophy,html[data-energy="dynamic"] .services,ht
       </div>
       <div class="f-links"><h5>Menu</h5><a href="#services">서비스</a><a href="#materials">소재</a><a href="#plans">견적</a></div>
       <div class="f-links"><h5>Studio</h5><a href="#">서울 강남구 도산대로 45</a><a href="#">평일 10:00 – 19:00</a><a href="#">주말 · 공휴일 예약제</a></div>
-      <div class="f-links"><h5>Contact</h5><a href="tel:0212345678">02-1234-5678</a><a href="mailto:hello@buttonhaus.kr">hello@buttonhaus.kr</a><a href="#">Instagram</a><a href="#">Pinterest</a></div>
+      <div class="f-links"><h5>Contact</h5><a href="tel:0212345678">02-1234-5678</a><a href="mailto:hello@buttonhaus.com">hello@buttonhaus.com</a><a href="#">Instagram</a><a href="#">Pinterest</a></div>
     </div>
     <div class="f-bottom">
       <span>© 2026 BUTTONHAUS. All rights reserved.</span>
