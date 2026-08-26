@@ -607,6 +607,7 @@ html[data-energy="dynamic"] .philosophy,html[data-energy="dynamic"] .services,ht
 </footer>
 
 <script>
+if('scrollRestoration' in history) history.scrollRestoration='manual';
 const consultForm=document.getElementById('consultForm');
 if(consultForm){
   consultForm.addEventListener('submit',async(e)=>{
@@ -879,7 +880,7 @@ segBtns.forEach((btn,i)=>{
     }
   }
   function onTouchEnd(){touchStartY=0}
-  function onScroll(){if(!expanded)window.scrollTo(0,0)}
+  function onScroll(){if(!expanded)window.scrollTo({top:0,left:0,behavior:'instant'})}
 
   window.addEventListener('wheel',onWheel,{passive:false});
   window.addEventListener('touchstart',onTouchStart,{passive:false});
