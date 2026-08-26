@@ -1,0 +1,10 @@
+.DS_Store
+
+# input/ holds AI-reference and source assets not used by the site.
+# Only the SVGs actually referenced in ButtonHaus.html are tracked.
+input/*
+!input/svg1.svg
+!input/svg2.svg
+!input/svg3.svg
+!input/svg4.svg
+!input/buttton.svg

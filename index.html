@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUTTONHAUS | 욕실 전문 인테리어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+@font-face{
+  font-family:'Peace Sans';
+  src:url('PeaceSans.ttf') format('truetype');
+  font-weight:normal;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --charcoal:#14150a;
+  --charcoal-2:#202115;
+  --cream:#efe9dd;
+  --cream-2:#e2dbc7;
+  --gold:#758956;
+  --gold-light:#a3b37e;
+  --ink:#3b2c20;
+  --line:rgba(239,233,221,.14);
+  --serif:'Noto Sans KR',sans-serif;
+  --sans:'Noto Sans KR',sans-serif;
+  --head-font:'Peace Sans','Noto Sans KR',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300}
+p{text-wrap:pretty;line-height:1.8;color:#5a5142}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--ink)}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 48px;min-width:0;box-sizing:border-box}
+.full{max-width:none;margin:0;padding:0 48px}
+.full .wrap{max-width:none;padding:0}
+.eyebrow{font-family:var(--sans);letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold);font-weight:500}
+:root{--reveal-dur:1s;--reveal-dist:28px;--h-font:var(--head-font);--h-weight:800;--h-case:uppercase;--h-style:normal;--h-tracking:-.01em}
+.reveal{opacity:0;transform:translateY(var(--reveal-dist));filter:blur(10px);transition:opacity var(--reveal-dur) cubic-bezier(.16,1,.3,1),transform var(--reveal-dur) cubic-bezier(.16,1,.3,1),filter var(--reveal-dur) cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0);filter:blur(0)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border:1px solid var(--ink);border-radius:999px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;cursor:pointer;background:transparent;color:var(--ink);transition:background .4s,color .4s,border-color .4s}
+.btn:hover{background:var(--ink);color:var(--cream)}
+.btn.light{border-color:rgba(239,233,221,.5);color:var(--cream)}
+.btn.light:hover{background:var(--cream);color:var(--ink)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--charcoal)}
+.btn.gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+
+/* header */
+header{position:absolute;top:0;left:0;right:0;z-index:100;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,backdrop-filter .5s,padding .5s;background:transparent;border-radius:0;border:none}
+header.scrolled{position:fixed;top:0;left:0;right:0;border-radius:0;border:none;background:rgba(20,21,10,.32);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);padding:18px 36px;box-shadow:0 1px 0 var(--line)}
+.logo{display:block;height:26px;width:auto;color:var(--cream)}
+nav{display:flex;gap:44px;align-items:center;justify-content:center}
+.header-logo{display:block;height:20px;width:auto;color:var(--cream);cursor:pointer;transition:color .35s}
+nav a{font-size:13px;letter-spacing:.06em;color:var(--cream-2);opacity:.85;transition:color .35s}
+nav a:hover{opacity:1;color:var(--gold)}
+header .btn{padding:12px 26px;font-size:11px;transition:background .35s,color .35s,border-color .35s}
+header.on-light .header-logo{color:var(--ink)}
+header.on-light nav a{color:var(--ink);opacity:.75}
+header.on-light nav a:hover{color:var(--gold);opacity:1}
+header.on-light .btn.light{border-color:rgba(59,44,32,.35);color:var(--ink)}
+header.on-light .btn.light:hover{background:var(--ink);color:var(--cream)}
+
+/* hero: scroll-expand effect */
+.sx-hero{position:relative}
+.sx-stage{position:relative;height:100dvh;min-height:680px;background:var(--charcoal);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 24px}
+.sx-bg{position:absolute;inset:0;z-index:0;will-change:opacity}
+.sx-bg image-slot{width:100%;height:100%}
+.sx-bg-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,10,.3) 0%,rgba(15,13,10,.25) 45%,rgba(15,13,10,.75) 100%);pointer-events:none}
+.sx-media{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:300px;height:400px;max-width:95vw;max-height:78vh;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);z-index:0;will-change:width,height}
+.sx-media-video{width:100%;height:100%;object-fit:cover;display:block}
+.sx-media-veil{position:absolute;inset:0;background:rgba(10,9,7,.35);pointer-events:none}
+.sx-title{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;pointer-events:none}
+.sx-brand{margin:0;line-height:0}
+.sx-brand-mark{display:block;width:clamp(240px,38vw,560px);height:auto;color:var(--cream)}
+.sx-tagline{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,233,221,.85);line-height:1.9;margin:16px 0 28px}
+.sx-cta{pointer-events:auto;display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border:1px solid rgba(239,233,221,.55);color:var(--cream);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s}
+.sx-cta:hover{background:var(--cream);color:var(--ink)}
+
+/* scroll-linked line: draws across the philosophy section as it scrolls by */
+.line-scroll{position:relative;z-index:0;background:var(--cream)}
+.line-scroll-svg{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;opacity:.55}
+.line-scroll-svg path{stroke-linecap:round}
+
+/* philosophy / brand story */
+.philosophy{padding:150px 0}
+.brand-story{max-width:640px;margin:0 auto;text-align:center}
+.story-mark{display:flex;flex-direction:column;align-items:center;margin-bottom:28px}
+.story-mark-logo{display:block;width:190px;height:auto;color:var(--ink)}
+.story-mark-tagline{display:block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:12px}
+.story-welcome{font-size:13px;letter-spacing:.03em;line-height:2;color:#7a7060;text-transform:uppercase}
+.story-divider{width:1px;height:46px;background:rgba(59,44,32,.25);margin:34px auto}
+.story-enquire{padding:12px 34px;font-size:11px}
+.story-heading{text-align:center;max-width:520px;margin:120px auto 50px}
+.story-heading h2{font-family:var(--head-font);font-size:28px;font-weight:400;margin-bottom:14px}
+.selector-options{display:flex;width:100%;height:400px;gap:14px}
+.selector-option{position:relative;flex:1 1 0%;min-width:60px;margin:0;border-radius:20px;overflow:hidden;cursor:pointer;background-repeat:no-repeat;background-position:center;background-size:auto 120%;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transform:translateX(-40px);transition:flex-grow .7s cubic-bezier(.4,0,.2,1),box-shadow .7s,background-size .7s}
+.selector-option.in{opacity:1;transform:translateX(0);transition:opacity .8s ease,transform .8s ease,flex-grow .7s cubic-bezier(.4,0,.2,1),box-shadow .7s,background-size .7s}
+.selector-option.active{flex:7 1 0%;background-size:auto 100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.selector-shadow{position:absolute;left:0;right:0;bottom:-40px;height:120px;pointer-events:none;transition:bottom .7s,box-shadow .7s;box-shadow:inset 0 -120px 0 -120px #000,inset 0 -120px 0 -80px #000}
+.selector-option.active .selector-shadow{bottom:0;box-shadow:inset 0 -120px 120px -120px #000,inset 0 -120px 120px -80px #000}
+.selector-label{position:absolute;left:0;right:0;bottom:20px;display:flex;align-items:center;justify-content:flex-start;gap:12px;padding:0 16px;pointer-events:none}
+.selector-icon{width:44px;height:44px;border-radius:50%;background:rgba(32,32,32,.85);backdrop-filter:blur(10px);border:2px solid rgba(239,233,221,.25);display:flex;align-items:center;justify-content:center;flex:none}
+.selector-icon svg{width:19px;height:19px;stroke:var(--cream)}
+.selector-info{color:var(--cream);white-space:nowrap;overflow:hidden}
+.selector-main{font-weight:600;font-size:16px;opacity:0;transform:translateX(20px);transition:opacity .6s,transform .6s}
+.selector-sub{font-size:12.5px;color:rgba(239,233,221,.7);margin-top:2px;opacity:0;transform:translateX(20px);transition:opacity .6s,transform .6s}
+.selector-option.active .selector-main,.selector-option.active .selector-sub{opacity:1;transform:translateX(0)}
+@media(max-width:640px){
+  .selector-options{height:280px;gap:8px}
+  .selector-label{bottom:12px;padding:0 10px}
+  .selector-main{font-size:14px}
+}
+.philosophy .stats{margin-top:150px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(59,44,32,.14)}
+.stat{padding:44px 30px 0;border-right:1px solid rgba(59,44,32,.14)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:var(--serif);font-size:54px;color:var(--ink);display:flex;align-items:baseline;gap:4px}
+.stat .num span{color:var(--gold)}
+.stat .label{margin-top:10px;font-size:13px;color:#7a7060;max-width:180px}
+
+/* services */
+.services{position:sticky;top:0;min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;z-index:1;padding:150px 0;background:var(--charcoal);color:var(--cream);border-radius:70px 70px 0 0}
+.svc-layout{display:grid;grid-template-columns:280px 1fr;gap:60px}
+.svc-side{display:flex;flex-direction:column;justify-content:space-between}
+.svc-side-heading{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.5;color:var(--cream)}
+.services h2{font-family:var(--head-font);font-size:clamp(26px,3vw,36px);font-weight:400;line-height:1.4;max-width:640px;margin-bottom:60px}
+
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+.svc-icon{width:44px;height:44px;border-radius:12px;background:var(--cream);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.svc-icon svg{width:20px;height:20px;stroke:var(--ink)}
+.svc-card h3{font-family:var(--head-font);font-size:17px;font-weight:600;margin-bottom:10px}
+.svc-card p{color:rgba(239,233,221,.6);font-size:14px;line-height:1.6}
+@media(max-width:1100px){
+  .svc-layout{grid-template-columns:1fr}
+  .svc-side{flex-direction:row;justify-content:space-between;align-items:center;margin-bottom:40px}
+}
+@media(max-width:640px){
+  .svc-side{flex-direction:column;align-items:flex-start;gap:16px}
+  .svc-grid{grid-template-columns:1fr;gap:32px}
+}
+
+/* process */
+.process{padding:150px 0;background:var(--cream)}
+.process .head{max-width:600px;margin-bottom:90px}
+.process h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;margin-top:18px}
+.process h2 em{font-style:normal;color:var(--gold)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.step{position:relative;padding-top:34px;border-top:2px solid rgba(59,44,32,.18)}
+.step.reveal.in{border-top-color:var(--gold)}
+.step .n{font-family:var(--serif);font-size:34px;color:var(--gold);display:block;margin-bottom:18px}
+.step h4{font-size:16px;font-weight:500;margin-bottom:10px}
+.step p{font-size:13.5px;color:#7a7060}
+
+/* materials */
+.materials{position:sticky;top:0;min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;z-index:2;padding:100px 0 150px;background:var(--charcoal);color:var(--cream)}
+.materials .head{max-width:600px;margin-bottom:70px}
+.materials h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;margin-top:18px}
+.materials h2 em{font-style:normal;color:var(--gold-light)}
+
+.tile-slider{margin-top:70px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tile-track{display:flex;gap:20px;width:max-content}
+.tile-item{position:relative;flex:none;width:240px;height:240px;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.tile-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease}
+.tile-item:hover img{transform:scale(1.05);filter:brightness(1.08)}
+.tile-caption{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg,rgba(15,13,10,.82),transparent);color:var(--cream);pointer-events:none;transform:translateY(8px);opacity:.9;transition:transform .4s}
+.tile-item:hover .tile-caption{transform:translateY(0)}
+.tile-caption .name{font-family:var(--serif);font-size:16px}
+.tile-caption .desc{font-size:11.5px;color:var(--cream-2);opacity:.75;margin-top:2px}
+@media(max-width:1100px){.tile-item{width:190px;height:190px}}
+@media(max-width:640px){.tile-item{width:150px;height:150px}.tile-track{gap:14px}}
+
+/* testimonials */
+.testimonials{position:relative;padding:150px 0;background:var(--cream)}
+.t-wrap{max-width:820px;margin:0 auto;text-align:center;position:relative}
+.t-track{overflow:hidden}
+.t-slides{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.t-slide{flex:0 0 100%;padding:0 20px}
+.t-slide blockquote{font-family:var(--serif);font-size:clamp(22px,2.6vw,30px);font-weight:300;line-height:1.5;font-style:normal;color:var(--ink)}
+.t-meta{margin-top:34px;display:flex;align-items:center;justify-content:center;gap:14px}
+.t-meta .avatar{width:52px;height:52px}
+.t-meta .who{text-align:center;font-size:13px}
+.t-meta .who b{display:block;font-family:var(--serif);font-size:15px;font-weight:500}
+.t-nav{display:flex;justify-content:center;gap:16px;margin-top:48px;align-items:center}
+.t-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(59,44,32,.25);background:transparent;cursor:pointer;font-size:16px;color:var(--ink);transition:all .3s}
+.t-nav button:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.t-dots{display:flex;gap:8px}
+.t-dots span{width:6px;height:6px;border-radius:50%;background:rgba(59,44,32,.25);transition:background .3s,transform .3s}
+.t-dots span.active{background:var(--gold);transform:scale(1.3)}
+
+/* plans */
+.plans{position:relative;padding:150px 0;background:var(--cream)}
+.plans .head{max-width:640px;margin:0 auto 20px;text-align:center}
+.plans h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;margin-top:18px}
+.plans h2 em{font-style:normal;color:var(--gold)}
+.segmented{display:flex;justify-content:center;margin:44px 0 60px}
+.seg-track{display:inline-flex;background:rgba(59,44,32,.08);border-radius:999px;padding:5px;position:relative}
+.seg-track button{position:relative;z-index:1;padding:12px 30px;border:none;background:transparent;font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:#7a7060;cursor:pointer;border-radius:999px;transition:color .3s}
+.seg-track button.active{color:var(--cream)}
+.seg-thumb{position:absolute;top:5px;left:5px;bottom:5px;width:calc(50% - 5px);background:var(--ink);border-radius:999px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.plan{position:relative;overflow:hidden;background:var(--cream);border:1px solid rgba(59,44,32,.1);border-radius:28px;padding:48px 38px;transition:transform .4s,box-shadow .4s}
+.plan.featured{background:var(--ink);color:var(--cream);transform:translateY(-16px);box-shadow:0 30px 60px -20px rgba(59,44,32,.35)}
+.plan:hover{transform:translateY(-6px)}
+.plan.featured:hover{transform:translateY(-20px)}
+.plan.featured::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(239,233,221,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(239,233,221,.07) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 60%,transparent 100%)}
+.plan .tier{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.plan h3{font-family:var(--head-font);font-size:28px;font-weight:400;margin:16px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.plan-badge{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0;padding:5px 12px;border-radius:999px;background:rgba(239,233,221,.14);color:var(--cream)}
+.plan .price{font-family:var(--serif);font-size:34px;margin-bottom:6px}
+.plan .price span{font-size:14px;font-family:var(--sans);opacity:.6}
+.plan .price-sub{font-size:12.5px;opacity:.6;margin-bottom:30px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.plan ul li{font-size:14px;padding-left:26px;position:relative;color:inherit;opacity:.85}
+.plan ul li::before{content:'✓';position:absolute;left:0;top:1px;width:16px;height:16px;line-height:16px;text-align:center;font-size:10px;font-weight:700;border-radius:50%;background:var(--gold);color:var(--cream)}
+.plan .btn{width:100%;justify-content:center}
+.plan.featured .btn{border-color:var(--gold);color:var(--cream)}
+.plan.featured .btn:hover{background:var(--gold);color:var(--ink)}
+.plan .price-set.hidden{display:none}
+
+/* decorative background icons: purely visual, never affect layout */
+.decor-icon{position:absolute;pointer-events:none;user-select:none;opacity:.8;z-index:0;background-color:var(--ink);will-change:transform;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain}
+.decor-leaf{width:220px;height:148px;top:400px;left:8%;z-index:5;-webkit-mask-image:url(input/svg1.svg);mask-image:url(input/svg1.svg)}
+.decor-soap{width:360px;height:240px;top:30px;left:1%;-webkit-mask-image:url(input/svg2.svg);mask-image:url(input/svg2.svg)}
+.decor-candle{width:270px;height:248px;top:80px;right:3%;-webkit-mask-image:url(input/svg3.svg);mask-image:url(input/svg3.svg)}
+.decor-oakleaf{width:280px;height:187px;top:230px;right:7%;-webkit-mask-image:url(input/svg4.svg);mask-image:url(input/svg4.svg)}
+@media(max-width:1100px){
+  .decor-leaf{width:154px;height:104px}
+  .decor-soap{width:252px;height:168px}
+  .decor-candle{width:189px;height:174px}
+  .decor-oakleaf{width:196px;height:131px}
+}
+@media(max-width:900px){.decor-icon{display:none}}
+
+/* logo marquee */
+.logo-marquee{background:var(--charcoal);overflow:hidden;padding:44px 0}
+.lm-track{display:flex;width:max-content}
+.lm-group{display:flex;align-items:center;flex-shrink:0}
+.lm-logo{display:block;height:26px;width:auto;color:var(--cream);flex-shrink:0}
+.lm-dot{width:84px;height:56px;margin:0 44px;flex-shrink:0;background-color:rgba(239,233,221,.5);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-image:url(input/buttton.svg);mask-image:url(input/buttton.svg);filter:drop-shadow(.7px 0 0 rgba(239,233,221,.5)) drop-shadow(-.7px 0 0 rgba(239,233,221,.5)) drop-shadow(0 .7px 0 rgba(239,233,221,.5)) drop-shadow(0 -.7px 0 rgba(239,233,221,.5))}
+
+/* cta */
+.cta{padding:150px 0;background:var(--charcoal);color:var(--cream)}
+.cta h2{font-family:var(--serif);font-size:clamp(42px,7vw,88px);font-weight:400;line-height:1.05;max-width:900px}
+.cta h2 em{font-style:normal;color:var(--gold-light)}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;margin-top:56px}
+.cta p{color:rgba(239,233,221,.65);max-width:420px}
+.form{display:flex;flex-direction:column;gap:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form input,.form select,.form textarea{background:transparent;border:none;border-bottom:1px solid rgba(239,233,221,.28);padding:14px 2px;color:var(--cream);font-family:var(--sans);font-size:14px;transition:border-color .3s}
+.form input::placeholder,.form textarea::placeholder{color:rgba(239,233,221,.4)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
+.form select option{color:#000}
+.form .btn{margin-top:10px;align-self:flex-start}
+.form-note{font-size:12px;color:rgba(239,233,221,.45);margin-top:6px}
+
+/* footer */
+footer{background:var(--charcoal);color:rgba(239,233,221,.6);border-top:1px solid var(--line);padding:80px 0 40px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid var(--line)}
+.f-grid h5{color:var(--cream);font-size:13px;letter-spacing:.08em;margin-bottom:20px;text-transform:uppercase;font-weight:500}
+.f-grid .logo{margin-bottom:16px}
+.f-grid p{max-width:280px;color:rgba(239,233,221,.5);font-size:13.5px}
+.f-links{display:flex;flex-direction:column;gap:12px;font-size:13.5px}
+.f-links h5{font-family:var(--head-font);font-weight:500}
+.f-links a{color:rgba(239,233,221,.6);overflow-wrap:anywhere}
+.f-bottom{display:flex;justify-content:space-between;padding-top:34px;font-size:12px;color:rgba(239,233,221,.4);flex-wrap:wrap;gap:12px}
+
+html[data-mood="midnight"]{--charcoal:#0c0c0c;--charcoal-2:#181818;--cream:#e9e5da;--cream-2:#dcd6c5;--gold:#b98d54;--gold-light:#dbc39a;--ink:#221c14}
+html[data-mood="terracotta"]{--charcoal:#2b1810;--charcoal-2:#3a2318;--cream:#f5ebe0;--cream-2:#ecdac8;--gold:#c1633c;--gold-light:#e0916a;--ink:#3d2416}
+html[data-mood="midnight"] image-slot,html[data-mood="midnight"] .sx-media-video{filter:grayscale(.25) contrast(1.1)}
+html[data-mood="terracotta"] image-slot,html[data-mood="terracotta"] .sx-media-video{filter:sepia(.2) saturate(1.15)}
+.process h2,.materials h2,.plans h2,.cta h2{font-family:var(--h-font);font-weight:var(--h-weight);text-transform:var(--h-case);letter-spacing:var(--h-tracking)}
+h2 em{font-style:var(--h-style)}
+html[data-voice="editorial"]{--h-font:var(--head-font);--h-weight:300;--h-case:none;--h-style:italic;--h-tracking:.01em}
+html[data-energy="dynamic"] .philosophy,html[data-energy="dynamic"] .services,html[data-energy="dynamic"] .process,html[data-energy="dynamic"] .materials,html[data-energy="dynamic"] .testimonials,html[data-energy="dynamic"] .plans,html[data-energy="dynamic"] .cta{padding:80px 0}
+@media(max-width:1100px){
+  .wrap,.full{padding:0 28px}
+  .philosophy{padding:100px 28px}
+  .services,.materials,.testimonials,.plans{padding:90px 0}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .plan-grid{grid-template-columns:1fr}
+  .plan.featured{transform:none}
+  .cta-grid{grid-template-columns:1fr;gap:40px}
+  .f-grid{grid-template-columns:1fr 1fr}
+  nav{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .f-grid{grid-template-columns:1fr;gap:36px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="bh-mark" viewBox="0 0 420 59"><path d="M36 30.025 C38.25 30.475 40.25 31.25 42 32.35C43.5 33.3 44.875 34.65 46.125 36.4C47.375 38.1 48 40.35 48 43.15C48 45.2 47.55 47.15 46.65 49C45.75 50.8 44.275 52.375 42.225 53.725C40.225 55.075 37.6 56.15 34.35 56.95C31.15 57.75 27.2 58.15 22.5 58.15C19.5 58.15 16.65 58.1 13.95 58C11.25 57.95 8.85 57.875 6.75 57.775C4.35 57.675 2.1 57.55 1.78814e-07 57.4V4.89999C2.05 4.79999 4.275 4.67499 6.675 4.52499C8.725 4.42499 11.075 4.34999 13.725 4.29999C16.375 4.19999 19.175 4.14999 22.125 4.14999C26.325 4.14999 29.925 4.54999 32.925 5.34999C35.925 6.09999 38.375 7.14999 40.275 8.49999C42.175 9.84999 43.55 11.425 44.4 13.225C45.3 14.975 45.75 16.825 45.75 18.775C45.75 21.025 45.225 22.875 44.175 24.325C43.175 25.725 42.075 26.825 40.875 27.625C39.425 28.525 37.8 29.2 36 29.65V30.025ZM19.5 24.4H22.125C23.425 24.4 24.425 24.075 25.125 23.425C25.875 22.775 26.25 21.975 26.25 21.025C26.25 20.075 25.875 19.275 25.125 18.625C24.425 17.975 23.425 17.65 22.125 17.65H19.5V24.4ZM22.5 44.65C24 44.65 25.125 44.325 25.875 43.675C26.625 42.975 27 42.05 27 40.9C27 39.75 26.625 38.85 25.875 38.2C25.125 37.5 24 37.15 22.5 37.15H19.5V44.65H22.5ZM58.8852 58.45C57.1118 58.45 55.4552 58.1 53.9152 57.4C52.4218 56.6533 51.0918 55.5333 49.9252 54.04C48.8052 52.5467 47.9185 50.6333 47.2652 48.3C46.6118 45.92 46.2852 43.12 46.2852 39.9V20.3H63.0852V39.9C63.0852 41.3 63.3652 42.35 63.9252 43.05C64.5318 43.75 65.1852 44.1 65.8852 44.1C66.5852 44.1 67.2152 43.75 67.7752 43.05C68.3818 42.35 68.6852 41.3 68.6852 39.9V20.3H85.4852V57.4H69.3852L67.9852 53.2C67.3785 54.18 66.6552 55.0667 65.8152 55.86C65.0685 56.5133 64.1118 57.0967 62.9452 57.61C61.8252 58.17 60.4718 58.45 58.8852 58.45ZM83.3961 34.3V20.3H88.2961V8.39999H105.096V20.3H111.396V34.3H105.096V40.25C105.096 41.65 105.399 42.7 106.006 43.4C106.659 44.1 107.523 44.45 108.596 44.45C108.969 44.45 109.296 44.45 109.576 44.45C109.903 44.4033 110.206 44.3567 110.486 44.31C110.766 44.2633 111.069 44.1933 111.396 44.1V58.1C110.836 58.24 110.229 58.3567 109.576 58.45C109.016 58.5433 108.339 58.6133 107.546 58.66C106.799 58.7533 105.983 58.8 105.096 58.8C99.8228 58.8 95.6928 57.26 92.7061 54.18C89.7661 51.0533 88.2961 46.41 88.2961 40.25V34.3H83.3961ZM109.277 34.3V20.3H114.177V8.39999H130.977V20.3H137.277V34.3H130.977V40.25C130.977 41.65 131.28 42.7 131.887 43.4C132.54 44.1 133.404 44.45 134.477 44.45C134.85 44.45 135.177 44.45 135.457 44.45C135.784 44.4033 136.087 44.3567 136.367 44.31C136.647 44.2633 136.95 44.1933 137.277 44.1V58.1C136.717 58.24 136.11 58.3567 135.457 58.45C134.897 58.5433 134.22 58.6133 133.427 58.66C132.68 58.7533 131.864 58.8 130.977 58.8C125.704 58.8 121.574 57.26 118.587 54.18C115.647 51.0533 114.177 46.41 114.177 40.25V34.3H109.277ZM135.858 38.85C135.858 36.1433 136.371 33.6 137.398 31.22C138.471 28.84 139.941 26.7633 141.808 24.99C143.674 23.2167 145.914 21.8167 148.528 20.79C151.141 19.7633 154.034 19.25 157.208 19.25C160.334 19.25 163.204 19.7633 165.818 20.79C168.478 21.8167 170.741 23.2167 172.608 24.99C174.474 26.7633 175.921 28.84 176.948 31.22C178.021 33.6 178.558 36.1433 178.558 38.85C178.558 41.5567 178.021 44.1 176.948 46.48C175.921 48.86 174.474 50.9367 172.608 52.71C170.741 54.4833 168.478 55.8833 165.818 56.91C163.204 57.9367 160.334 58.45 157.208 58.45C154.034 58.45 151.141 57.9367 148.528 56.91C145.914 55.8833 143.674 54.4833 141.808 52.71C139.941 50.9367 138.471 48.86 137.398 46.48C136.371 44.1 135.858 41.5567 135.858 38.85ZM161.758 38.85C161.758 37.2633 161.291 36.0033 160.358 35.07C159.471 34.09 158.421 33.6 157.208 33.6C155.994 33.6 154.921 34.09 153.988 35.07C153.101 36.0033 152.658 37.2633 152.658 38.85C152.658 40.4367 153.101 41.72 153.988 42.7C154.921 43.6333 155.994 44.1 157.208 44.1C158.421 44.1 159.471 43.6333 160.358 42.7C161.291 41.72 161.758 40.4367 161.758 38.85ZM203.752 19.25C205.479 19.25 207.112 19.6233 208.652 20.37C210.192 21.07 211.522 22.1667 212.642 23.66C213.809 25.1533 214.719 27.09 215.372 29.47C216.026 31.8033 216.352 34.58 216.352 37.8V57.4H199.552V37.8C199.552 36.4 199.249 35.35 198.642 34.65C198.082 33.95 197.452 33.6 196.752 33.6C196.052 33.6 195.399 33.95 194.792 34.65C194.232 35.35 193.952 36.4 193.952 37.8V57.4H177.152V20.3H193.252L194.652 24.5C195.259 23.5667 195.982 22.7033 196.822 21.91C197.569 21.2567 198.502 20.65 199.622 20.09C200.789 19.53 202.166 19.25 203.752 19.25ZM243.193 22.9H255.193V4.89999H274.693V57.4H255.193V39.4H243.193V57.4H223.693V4.89999H243.193V22.9ZM291.629 19.25C294.615 19.25 297.369 19.7633 299.889 20.79C302.409 21.8167 304.579 23.2167 306.399 24.99C308.265 26.7633 309.712 28.84 310.739 31.22C311.765 33.6 312.279 36.1433 312.279 38.85V57.4H296.179L294.779 53.2C294.172 54.18 293.449 55.0667 292.609 55.86C291.862 56.5133 290.905 57.0967 289.739 57.61C288.619 58.17 287.265 58.45 285.679 58.45C283.765 58.45 282.015 58.1467 280.429 57.54C278.889 56.98 277.559 56.1867 276.439 55.16C275.365 54.1333 274.525 52.92 273.919 51.52C273.359 50.12 273.079 48.58 273.079 46.9C273.079 45.22 273.382 43.68 273.989 42.28C274.642 40.88 275.645 39.6667 276.999 38.64C278.352 37.6133 280.079 36.82 282.179 36.26C284.325 35.6533 286.892 35.35 289.879 35.35H295.479C295.292 34.65 294.942 34.02 294.429 33.46C293.962 32.9467 293.309 32.5033 292.469 32.13C291.675 31.71 290.579 31.5 289.179 31.5C288.292 31.5 287.452 31.64 286.659 31.92C285.912 32.2 285.259 32.5267 284.699 32.9C284.045 33.32 283.439 33.7867 282.879 34.3L276.929 24.85C277.955 23.8233 279.215 22.89 280.709 22.05C281.969 21.35 283.509 20.72 285.329 20.16C287.149 19.5533 289.249 19.25 291.629 19.25ZM291.979 47.25C292.865 47.25 293.659 46.7833 294.359 45.85C295.105 44.9167 295.479 43.4 295.479 41.3C293.519 41.3 292.095 41.6733 291.209 42.42C290.322 43.1667 289.879 44.0767 289.879 45.15C289.879 45.6633 290.089 46.1533 290.509 46.62C290.975 47.04 291.465 47.25 291.979 47.25ZM324.187 58.45C322.414 58.45 320.757 58.1 319.217 57.4C317.724 56.6533 316.394 55.5333 315.227 54.04C314.107 52.5467 313.22 50.6333 312.567 48.3C311.914 45.92 311.587 43.12 311.587 39.9V20.3H328.387V39.9C328.387 41.3 328.667 42.35 329.227 43.05C329.834 43.75 330.487 44.1 331.187 44.1C331.887 44.1 332.517 43.75 333.077 43.05C333.684 42.35 333.987 41.3 333.987 39.9V20.3H350.787V57.4H334.687L333.287 53.2C332.68 54.18 331.957 55.0667 331.117 55.86C330.37 56.5133 329.414 57.0967 328.247 57.61C327.127 58.17 325.774 58.45 324.187 58.45ZM381.948 46.2C381.948 47.88 381.598 49.4667 380.898 50.96C380.198 52.4067 379.148 53.69 377.748 54.81C376.395 55.93 374.691 56.8167 372.638 57.47C370.585 58.1233 368.205 58.45 365.498 58.45C362.558 58.45 360.015 58.1 357.868 57.4C355.721 56.7467 353.901 56 352.408 55.16C350.681 54.18 349.211 53.06 347.998 51.8L353.248 43.4C353.948 44.0533 354.741 44.6367 355.628 45.15C356.421 45.6167 357.331 46.0367 358.358 46.41C359.431 46.7367 360.645 46.9 361.998 46.9C362.511 46.9 362.931 46.76 363.258 46.48C363.585 46.2 363.748 45.8733 363.748 45.5C363.748 45.1733 363.398 44.8467 362.698 44.52C362.045 44.1933 361.205 43.82 360.178 43.4C359.198 42.98 358.101 42.49 356.888 41.93C355.721 41.3233 354.625 40.5767 353.598 39.69C352.618 38.7567 351.778 37.6367 351.078 36.33C350.425 34.9767 350.098 33.3667 350.098 31.5C350.098 29.82 350.448 28.2567 351.148 26.81C351.848 25.3167 352.875 24.01 354.228 22.89C355.628 21.77 357.355 20.8833 359.408 20.23C361.461 19.5767 363.841 19.25 366.548 19.25C368.928 19.25 371.051 19.5767 372.918 20.23C374.831 20.8367 376.465 21.5133 377.818 22.26C379.358 23.1 380.735 24.08 381.948 25.2L376.698 33.6C376.138 33.0867 375.508 32.62 374.808 32.2C374.201 31.8267 373.478 31.5 372.638 31.22C371.845 30.94 370.981 30.8 370.048 30.8C369.535 30.8 369.115 30.94 368.788 31.22C368.461 31.5 368.298 31.8267 368.298 32.2C368.298 32.5733 368.625 32.9233 369.278 33.25C369.978 33.53 370.818 33.88 371.798 34.3C372.825 34.72 373.921 35.2333 375.088 35.84C376.301 36.4 377.398 37.1467 378.378 38.08C379.405 38.9667 380.245 40.0867 380.898 41.44C381.598 42.7467 381.948 44.3333 381.948 46.2ZM404.088 24.75L402.513 19.8H402.288V24.75H395.538V8.54999L397.788 8.32499C398.478 8.26499 399.243 8.21999 400.083 8.18999C400.953 8.12999 401.838 8.09999 402.738 8.09999C404.088 8.09999 405.258 8.26499 406.248 8.59499C407.268 8.89499 408.108 9.31499 408.768 9.85499C409.458 10.395 409.968 11.025 410.298 11.745C410.658 12.435 410.838 13.17 410.838 13.95C410.838 14.64 410.718 15.24 410.478 15.75C410.238 16.26 409.983 16.68 409.713 17.01C409.383 17.4 409.008 17.73 408.588 18L411.738 24.75H404.088ZM402.288 15.3H402.738C403.068 15.3 403.368 15.165 403.638 14.895C403.938 14.595 404.088 14.28 404.088 13.95C404.088 13.62 403.938 13.32 403.638 13.05C403.368 12.75 403.068 12.6 402.738 12.6H402.288V15.3ZM385.638 16.65C385.638 14.4 386.088 12.27 386.988 10.26C387.888 8.24999 389.103 6.47999 390.633 4.94999C392.193 3.41999 394.008 2.21999 396.078 1.34999C398.148 0.449992 400.368 -7.39098e-06 402.738 -7.39098e-06C405.108 -7.39098e-06 407.328 0.449992 409.398 1.34999C411.468 2.21999 413.268 3.41999 414.798 4.94999C416.358 6.47999 417.588 8.24999 418.488 10.26C419.388 12.27 419.838 14.4 419.838 16.65C419.838 18.9 419.388 21.03 418.488 23.04C417.588 25.05 416.358 26.82 414.798 28.35C413.268 29.88 411.468 31.095 409.398 31.995C407.328 32.865 405.108 33.3 402.738 33.3C400.368 33.3 398.148 32.865 396.078 31.995C394.008 31.095 392.193 29.88 390.633 28.35C389.103 26.82 387.888 25.05 386.988 23.04C386.088 21.03 385.638 18.9 385.638 16.65ZM415.338 16.65C415.338 14.97 415.008 13.395 414.348 11.925C413.718 10.425 412.833 9.13499 411.693 8.05499C410.583 6.94499 409.263 6.07499 407.733 5.44499C406.203 4.81499 404.538 4.49999 402.738 4.49999C400.938 4.49999 399.258 4.81499 397.698 5.44499C396.168 6.07499 394.833 6.94499 393.693 8.05499C392.583 9.13499 391.713 10.425 391.083 11.925C390.453 13.395 390.138 14.97 390.138 16.65C390.138 18.33 390.453 19.92 391.083 21.42C391.713 22.89 392.583 24.18 393.693 25.29C394.833 26.37 396.168 27.225 397.698 27.855C399.258 28.485 400.938 28.8 402.738 28.8C404.538 28.8 406.203 28.485 407.733 27.855C409.263 27.225 410.583 26.37 411.693 25.29C412.833 24.18 413.718 22.89 414.348 21.42C415.008 19.92 415.338 18.33 415.338 16.65Z" fill="currentColor"/></symbol>
+</svg>
+
+<header id="siteHeader" style="background-color: #AFADAD00">
+  <svg class="header-logo" viewBox="0 0 420 59" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg>
+  <nav id="siteNav">
+    <a href="#services">서비스</a>
+    <a href="#materials">소재</a>
+    <a href="#plans">견적</a>
+    <a href="#contact">문의</a>
+  </nav>
+  <a href="#contact" class="btn light">상담 신청</a>
+</header>
+
+<section class="sx-hero" id="sxHero">
+  <div class="sx-stage">
+    <div class="sx-bg" id="sxBg">
+      <image-slot id="hero-bg" shape="rect" placeholder="욕실 시공 사례 대표 이미지 (풀블리드)" src="hero-bg.jpg"></image-slot>
+      <div class="sx-bg-veil"></div>
+    </div>
+
+    <div class="sx-media" id="sxMedia">
+      <video class="sx-media-video" src="hero-video.mp4" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback></video>
+      <div class="sx-media-veil"></div>
+    </div>
+
+    <div class="sx-title" id="sxTitle">
+      <h1 class="sx-brand"><svg class="sx-brand-mark" viewBox="0 0 420 59" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Button Haus"><path d="M36 30.025C38.25 30.475 40.25 31.25 42 32.35C43.5 33.3 44.875 34.65 46.125 36.4C47.375 38.1 48 40.35 48 43.15C48 45.2 47.55 47.15 46.65 49C45.75 50.8 44.275 52.375 42.225 53.725C40.225 55.075 37.6 56.15 34.35 56.95C31.15 57.75 27.2 58.15 22.5 58.15C19.5 58.15 16.65 58.1 13.95 58C11.25 57.95 8.85 57.875 6.75 57.775C4.35 57.675 2.1 57.55 1.78814e-07 57.4V4.89999C2.05 4.79999 4.275 4.67499 6.675 4.52499C8.725 4.42499 11.075 4.34999 13.725 4.29999C16.375 4.19999 19.175 4.14999 22.125 4.14999C26.325 4.14999 29.925 4.54999 32.925 5.34999C35.925 6.09999 38.375 7.14999 40.275 8.49999C42.175 9.84999 43.55 11.425 44.4 13.225C45.3 14.975 45.75 16.825 45.75 18.775C45.75 21.025 45.225 22.875 44.175 24.325C43.175 25.725 42.075 26.825 40.875 27.625C39.425 28.525 37.8 29.2 36 29.65V30.025ZM19.5 24.4H22.125C23.425 24.4 24.425 24.075 25.125 23.425C25.875 22.775 26.25 21.975 26.25 21.025C26.25 20.075 25.875 19.275 25.125 18.625C24.425 17.975 23.425 17.65 22.125 17.65H19.5V24.4ZM22.5 44.65C24 44.65 25.125 44.325 25.875 43.675C26.625 42.975 27 42.05 27 40.9C27 39.75 26.625 38.85 25.875 38.2C25.125 37.5 24 37.15 22.5 37.15H19.5V44.65H22.5ZM58.8852 58.45C57.1118 58.45 55.4552 58.1 53.9152 57.4C52.4218 56.6533 51.0918 55.5333 49.9252 54.04C48.8052 52.5467 47.9185 50.6333 47.2652 48.3C46.6118 45.92 46.2852 43.12 46.2852 39.9V20.3H63.0852V39.9C63.0852 41.3 63.3652 42.35 63.9252 43.05C64.5318 43.75 65.1852 44.1 65.8852 44.1C66.5852 44.1 67.2152 43.75 67.7752 43.05C68.3818 42.35 68.6852 41.3 68.6852 39.9V20.3H85.4852V57.4H69.3852L67.9852 53.2C67.3785 54.18 66.6552 55.0667 65.8152 55.86C65.0685 56.5133 64.1118 57.0967 62.9452 57.61C61.8252 58.17 60.4718 58.45 58.8852 58.45ZM83.3961 34.3V20.3H88.2961V8.39999H105.096V20.3H111.396V34.3H105.096V40.25C105.096 41.65 105.399 42.7 106.006 43.4C106.659 44.1 107.523 44.45 108.596 44.45C108.969 44.45 109.296 44.45 109.576 44.45C109.903 44.4033 110.206 44.3567 110.486 44.31C110.766 44.2633 111.069 44.1933 111.396 44.1V58.1C110.836 58.24 110.229 58.3567 109.576 58.45C109.016 58.5433 108.339 58.6133 107.546 58.66C106.799 58.7533 105.983 58.8 105.096 58.8C99.8228 58.8 95.6928 57.26 92.7061 54.18C89.7661 51.0533 88.2961 46.41 88.2961 40.25V34.3H83.3961ZM109.277 34.3V20.3H114.177V8.39999H130.977V20.3H137.277V34.3H130.977V40.25C130.977 41.65 131.28 42.7 131.887 43.4C132.54 44.1 133.404 44.45 134.477 44.45C134.85 44.45 135.177 44.45 135.457 44.45C135.784 44.4033 136.087 44.3567 136.367 44.31C136.647 44.2633 136.95 44.1933 137.277 44.1V58.1C136.717 58.24 136.11 58.3567 135.457 58.45C134.897 58.5433 134.22 58.6133 133.427 58.66C132.68 58.7533 131.864 58.8 130.977 58.8C125.704 58.8 121.574 57.26 118.587 54.18C115.647 51.0533 114.177 46.41 114.177 40.25V34.3H109.277ZM135.858 38.85C135.858 36.1433 136.371 33.6 137.398 31.22C138.471 28.84 139.941 26.7633 141.808 24.99C143.674 23.2167 145.914 21.8167 148.528 20.79C151.141 19.7633 154.034 19.25 157.208 19.25C160.334 19.25 163.204 19.7633 165.818 20.79C168.478 21.8167 170.741 23.2167 172.608 24.99C174.474 26.7633 175.921 28.84 176.948 31.22C178.021 33.6 178.558 36.1433 178.558 38.85C178.558 41.5567 178.021 44.1 176.948 46.48C175.921 48.86 174.474 50.9367 172.608 52.71C170.741 54.4833 168.478 55.8833 165.818 56.91C163.204 57.9367 160.334 58.45 157.208 58.45C154.034 58.45 151.141 57.9367 148.528 56.91C145.914 55.8833 143.674 54.4833 141.808 52.71C139.941 50.9367 138.471 48.86 137.398 46.48C136.371 44.1 135.858 41.5567 135.858 38.85ZM161.758 38.85C161.758 37.2633 161.291 36.0033 160.358 35.07C159.471 34.09 158.421 33.6 157.208 33.6C155.994 33.6 154.921 34.09 153.988 35.07C153.101 36.0033 152.658 37.2633 152.658 38.85C152.658 40.4367 153.101 41.72 153.988 42.7C154.921 43.6333 155.994 44.1 157.208 44.1C158.421 44.1 159.471 43.6333 160.358 42.7C161.291 41.72 161.758 40.4367 161.758 38.85ZM203.752 19.25C205.479 19.25 207.112 19.6233 208.652 20.37C210.192 21.07 211.522 22.1667 212.642 23.66C213.809 25.1533 214.719 27.09 215.372 29.47C216.026 31.8033 216.352 34.58 216.352 37.8V57.4H199.552V37.8C199.552 36.4 199.249 35.35 198.642 34.65C198.082 33.95 197.452 33.6 196.752 33.6C196.052 33.6 195.399 33.95 194.792 34.65C194.232 35.35 193.952 36.4 193.952 37.8V57.4H177.152V20.3H193.252L194.652 24.5C195.259 23.5667 195.982 22.7033 196.822 21.91C197.569 21.2567 198.502 20.65 199.622 20.09C200.789 19.53 202.166 19.25 203.752 19.25ZM243.193 22.9H255.193V4.89999H274.693V57.4H255.193V39.4H243.193V57.4H223.693V4.89999H243.193V22.9ZM291.629 19.25C294.615 19.25 297.369 19.7633 299.889 20.79C302.409 21.8167 304.579 23.2167 306.399 24.99C308.265 26.7633 309.712 28.84 310.739 31.22C311.765 33.6 312.279 36.1433 312.279 38.85V57.4H296.179L294.779 53.2C294.172 54.18 293.449 55.0667 292.609 55.86C291.862 56.5133 290.905 57.0967 289.739 57.61C288.619 58.17 287.265 58.45 285.679 58.45C283.765 58.45 282.015 58.1467 280.429 57.54C278.889 56.98 277.559 56.1867 276.439 55.16C275.365 54.1333 274.525 52.92 273.919 51.52C273.359 50.12 273.079 48.58 273.079 46.9C273.079 45.22 273.382 43.68 273.989 42.28C274.642 40.88 275.645 39.6667 276.999 38.64C278.352 37.6133 280.079 36.82 282.179 36.26C284.325 35.6533 286.892 35.35 289.879 35.35H295.479C295.292 34.65 294.942 34.02 294.429 33.46C293.962 32.9467 293.309 32.5033 292.469 32.13C291.675 31.71 290.579 31.5 289.179 31.5C288.292 31.5 287.452 31.64 286.659 31.92C285.912 32.2 285.259 32.5267 284.699 32.9C284.045 33.32 283.439 33.7867 282.879 34.3L276.929 24.85C277.955 23.8233 279.215 22.89 280.709 22.05C281.969 21.35 283.509 20.72 285.329 20.16C287.149 19.5533 289.249 19.25 291.629 19.25ZM291.979 47.25C292.865 47.25 293.659 46.7833 294.359 45.85C295.105 44.9167 295.479 43.4 295.479 41.3C293.519 41.3 292.095 41.6733 291.209 42.42C290.322 43.1667 289.879 44.0767 289.879 45.15C289.879 45.6633 290.089 46.1533 290.509 46.62C290.975 47.04 291.465 47.25 291.979 47.25ZM324.187 58.45C322.414 58.45 320.757 58.1 319.217 57.4C317.724 56.6533 316.394 55.5333 315.227 54.04C314.107 52.5467 313.22 50.6333 312.567 48.3C311.914 45.92 311.587 43.12 311.587 39.9V20.3H328.387V39.9C328.387 41.3 328.667 42.35 329.227 43.05C329.834 43.75 330.487 44.1 331.187 44.1C331.887 44.1 332.517 43.75 333.077 43.05C333.684 42.35 333.987 41.3 333.987 39.9V20.3H350.787V57.4H334.687L333.287 53.2C332.68 54.18 331.957 55.0667 331.117 55.86C330.37 56.5133 329.414 57.0967 328.247 57.61C327.127 58.17 325.774 58.45 324.187 58.45ZM381.948 46.2C381.948 47.88 381.598 49.4667 380.898 50.96C380.198 52.4067 379.148 53.69 377.748 54.81C376.395 55.93 374.691 56.8167 372.638 57.47C370.585 58.1233 368.205 58.45 365.498 58.45C362.558 58.45 360.015 58.1 357.868 57.4C355.721 56.7467 353.901 56 352.408 55.16C350.681 54.18 349.211 53.06 347.998 51.8L353.248 43.4C353.948 44.0533 354.741 44.6367 355.628 45.15C356.421 45.6167 357.331 46.0367 358.358 46.41C359.431 46.7367 360.645 46.9 361.998 46.9C362.511 46.9 362.931 46.76 363.258 46.48C363.585 46.2 363.748 45.8733 363.748 45.5C363.748 45.1733 363.398 44.8467 362.698 44.52C362.045 44.1933 361.205 43.82 360.178 43.4C359.198 42.98 358.101 42.49 356.888 41.93C355.721 41.3233 354.625 40.5767 353.598 39.69C352.618 38.7567 351.778 37.6367 351.078 36.33C350.425 34.9767 350.098 33.3667 350.098 31.5C350.098 29.82 350.448 28.2567 351.148 26.81C351.848 25.3167 352.875 24.01 354.228 22.89C355.628 21.77 357.355 20.8833 359.408 20.23C361.461 19.5767 363.841 19.25 366.548 19.25C368.928 19.25 371.051 19.5767 372.918 20.23C374.831 20.8367 376.465 21.5133 377.818 22.26C379.358 23.1 380.735 24.08 381.948 25.2L376.698 33.6C376.138 33.0867 375.508 32.62 374.808 32.2C374.201 31.8267 373.478 31.5 372.638 31.22C371.845 30.94 370.981 30.8 370.048 30.8C369.535 30.8 369.115 30.94 368.788 31.22C368.461 31.5 368.298 31.8267 368.298 32.2C368.298 32.5733 368.625 32.9233 369.278 33.25C369.978 33.53 370.818 33.88 371.798 34.3C372.825 34.72 373.921 35.2333 375.088 35.84C376.301 36.4 377.398 37.1467 378.378 38.08C379.405 38.9667 380.245 40.0867 380.898 41.44C381.598 42.7467 381.948 44.3333 381.948 46.2ZM404.088 24.75L402.513 19.8H402.288V24.75H395.538V8.54999L397.788 8.32499C398.478 8.26499 399.243 8.21999 400.083 8.18999C400.953 8.12999 401.838 8.09999 402.738 8.09999C404.088 8.09999 405.258 8.26499 406.248 8.59499C407.268 8.89499 408.108 9.31499 408.768 9.85499C409.458 10.395 409.968 11.025 410.298 11.745C410.658 12.435 410.838 13.17 410.838 13.95C410.838 14.64 410.718 15.24 410.478 15.75C410.238 16.26 409.983 16.68 409.713 17.01C409.383 17.4 409.008 17.73 408.588 18L411.738 24.75H404.088ZM402.288 15.3H402.738C403.068 15.3 403.368 15.165 403.638 14.895C403.938 14.595 404.088 14.28 404.088 13.95C404.088 13.62 403.938 13.32 403.638 13.05C403.368 12.75 403.068 12.6 402.738 12.6H402.288V15.3ZM385.638 16.65C385.638 14.4 386.088 12.27 386.988 10.26C387.888 8.24999 389.103 6.47999 390.633 4.94999C392.193 3.41999 394.008 2.21999 396.078 1.34999C398.148 0.449992 400.368 -7.39098e-06 402.738 -7.39098e-06C405.108 -7.39098e-06 407.328 0.449992 409.398 1.34999C411.468 2.21999 413.268 3.41999 414.798 4.94999C416.358 6.47999 417.588 8.24999 418.488 10.26C419.388 12.27 419.838 14.4 419.838 16.65C419.838 18.9 419.388 21.03 418.488 23.04C417.588 25.05 416.358 26.82 414.798 28.35C413.268 29.88 411.468 31.095 409.398 31.995C407.328 32.865 405.108 33.3 402.738 33.3C400.368 33.3 398.148 32.865 396.078 31.995C394.008 31.095 392.193 29.88 390.633 28.35C389.103 26.82 387.888 25.05 386.988 23.04C386.088 21.03 385.638 18.9 385.638 16.65ZM415.338 16.65C415.338 14.97 415.008 13.395 414.348 11.925C413.718 10.425 412.833 9.13499 411.693 8.05499C410.583 6.94499 409.263 6.07499 407.733 5.44499C406.203 4.81499 404.538 4.49999 402.738 4.49999C400.938 4.49999 399.258 4.81499 397.698 5.44499C396.168 6.07499 394.833 6.94499 393.693 8.05499C392.583 9.13499 391.713 10.425 391.083 11.925C390.453 13.395 390.138 14.97 390.138 16.65C390.138 18.33 390.453 19.92 391.083 21.42C391.713 22.89 392.583 24.18 393.693 25.29C394.833 26.37 396.168 27.225 397.698 27.855C399.258 28.485 400.938 28.8 402.738 28.8C404.538 28.8 406.203 28.485 407.733 27.855C409.263 27.225 410.583 26.37 411.693 25.29C412.833 24.18 413.718 22.89 414.348 21.42C415.008 19.92 415.338 18.33 415.338 16.65Z" fill="currentColor"/></svg></h1>
+      <p class="sx-tagline">BATHROOMS. REIMAGINED.<br>LUXURY INTERIORS FOR MODERN LIVING.</p>
+      <a href="#services" class="sx-cta">Explore Collection</a>
+    </div>
+  </div>
+
+</section>
+
+<div class="line-scroll" id="lineScroll">
+<section class="philosophy wrap">
+  <div class="brand-story reveal">
+    <div class="story-mark"><svg class="story-mark-logo" viewBox="0 0 420 59" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Button Haus"><path d="M36 30.025C38.25 30.475 40.25 31.25 42 32.35C43.5 33.3 44.875 34.65 46.125 36.4C47.375 38.1 48 40.35 48 43.15C48 45.2 47.55 47.15 46.65 49C45.75 50.8 44.275 52.375 42.225 53.725C40.225 55.075 37.6 56.15 34.35 56.95C31.15 57.75 27.2 58.15 22.5 58.15C19.5 58.15 16.65 58.1 13.95 58C11.25 57.95 8.85 57.875 6.75 57.775C4.35 57.675 2.1 57.55 1.78814e-07 57.4V4.89999C2.05 4.79999 4.275 4.67499 6.675 4.52499C8.725 4.42499 11.075 4.34999 13.725 4.29999C16.375 4.19999 19.175 4.14999 22.125 4.14999C26.325 4.14999 29.925 4.54999 32.925 5.34999C35.925 6.09999 38.375 7.14999 40.275 8.49999C42.175 9.84999 43.55 11.425 44.4 13.225C45.3 14.975 45.75 16.825 45.75 18.775C45.75 21.025 45.225 22.875 44.175 24.325C43.175 25.725 42.075 26.825 40.875 27.625C39.425 28.525 37.8 29.2 36 29.65V30.025ZM19.5 24.4H22.125C23.425 24.4 24.425 24.075 25.125 23.425C25.875 22.775 26.25 21.975 26.25 21.025C26.25 20.075 25.875 19.275 25.125 18.625C24.425 17.975 23.425 17.65 22.125 17.65H19.5V24.4ZM22.5 44.65C24 44.65 25.125 44.325 25.875 43.675C26.625 42.975 27 42.05 27 40.9C27 39.75 26.625 38.85 25.875 38.2C25.125 37.5 24 37.15 22.5 37.15H19.5V44.65H22.5ZM58.8852 58.45C57.1118 58.45 55.4552 58.1 53.9152 57.4C52.4218 56.6533 51.0918 55.5333 49.9252 54.04C48.8052 52.5467 47.9185 50.6333 47.2652 48.3C46.6118 45.92 46.2852 43.12 46.2852 39.9V20.3H63.0852V39.9C63.0852 41.3 63.3652 42.35 63.9252 43.05C64.5318 43.75 65.1852 44.1 65.8852 44.1C66.5852 44.1 67.2152 43.75 67.7752 43.05C68.3818 42.35 68.6852 41.3 68.6852 39.9V20.3H85.4852V57.4H69.3852L67.9852 53.2C67.3785 54.18 66.6552 55.0667 65.8152 55.86C65.0685 56.5133 64.1118 57.0967 62.9452 57.61C61.8252 58.17 60.4718 58.45 58.8852 58.45ZM83.3961 34.3V20.3H88.2961V8.39999H105.096V20.3H111.396V34.3H105.096V40.25C105.096 41.65 105.399 42.7 106.006 43.4C106.659 44.1 107.523 44.45 108.596 44.45C108.969 44.45 109.296 44.45 109.576 44.45C109.903 44.4033 110.206 44.3567 110.486 44.31C110.766 44.2633 111.069 44.1933 111.396 44.1V58.1C110.836 58.24 110.229 58.3567 109.576 58.45C109.016 58.5433 108.339 58.6133 107.546 58.66C106.799 58.7533 105.983 58.8 105.096 58.8C99.8228 58.8 95.6928 57.26 92.7061 54.18C89.7661 51.0533 88.2961 46.41 88.2961 40.25V34.3H83.3961ZM109.277 34.3V20.3H114.177V8.39999H130.977V20.3H137.277V34.3H130.977V40.25C130.977 41.65 131.28 42.7 131.887 43.4C132.54 44.1 133.404 44.45 134.477 44.45C134.85 44.45 135.177 44.45 135.457 44.45C135.784 44.4033 136.087 44.3567 136.367 44.31C136.647 44.2633 136.95 44.1933 137.277 44.1V58.1C136.717 58.24 136.11 58.3567 135.457 58.45C134.897 58.5433 134.22 58.6133 133.427 58.66C132.68 58.7533 131.864 58.8 130.977 58.8C125.704 58.8 121.574 57.26 118.587 54.18C115.647 51.0533 114.177 46.41 114.177 40.25V34.3H109.277ZM135.858 38.85C135.858 36.1433 136.371 33.6 137.398 31.22C138.471 28.84 139.941 26.7633 141.808 24.99C143.674 23.2167 145.914 21.8167 148.528 20.79C151.141 19.7633 154.034 19.25 157.208 19.25C160.334 19.25 163.204 19.7633 165.818 20.79C168.478 21.8167 170.741 23.2167 172.608 24.99C174.474 26.7633 175.921 28.84 176.948 31.22C178.021 33.6 178.558 36.1433 178.558 38.85C178.558 41.5567 178.021 44.1 176.948 46.48C175.921 48.86 174.474 50.9367 172.608 52.71C170.741 54.4833 168.478 55.8833 165.818 56.91C163.204 57.9367 160.334 58.45 157.208 58.45C154.034 58.45 151.141 57.9367 148.528 56.91C145.914 55.8833 143.674 54.4833 141.808 52.71C139.941 50.9367 138.471 48.86 137.398 46.48C136.371 44.1 135.858 41.5567 135.858 38.85ZM161.758 38.85C161.758 37.2633 161.291 36.0033 160.358 35.07C159.471 34.09 158.421 33.6 157.208 33.6C155.994 33.6 154.921 34.09 153.988 35.07C153.101 36.0033 152.658 37.2633 152.658 38.85C152.658 40.4367 153.101 41.72 153.988 42.7C154.921 43.6333 155.994 44.1 157.208 44.1C158.421 44.1 159.471 43.6333 160.358 42.7C161.291 41.72 161.758 40.4367 161.758 38.85ZM203.752 19.25C205.479 19.25 207.112 19.6233 208.652 20.37C210.192 21.07 211.522 22.1667 212.642 23.66C213.809 25.1533 214.719 27.09 215.372 29.47C216.026 31.8033 216.352 34.58 216.352 37.8V57.4H199.552V37.8C199.552 36.4 199.249 35.35 198.642 34.65C198.082 33.95 197.452 33.6 196.752 33.6C196.052 33.6 195.399 33.95 194.792 34.65C194.232 35.35 193.952 36.4 193.952 37.8V57.4H177.152V20.3H193.252L194.652 24.5C195.259 23.5667 195.982 22.7033 196.822 21.91C197.569 21.2567 198.502 20.65 199.622 20.09C200.789 19.53 202.166 19.25 203.752 19.25ZM243.193 22.9H255.193V4.89999H274.693V57.4H255.193V39.4H243.193V57.4H223.693V4.89999H243.193V22.9ZM291.629 19.25C294.615 19.25 297.369 19.7633 299.889 20.79C302.409 21.8167 304.579 23.2167 306.399 24.99C308.265 26.7633 309.712 28.84 310.739 31.22C311.765 33.6 312.279 36.1433 312.279 38.85V57.4H296.179L294.779 53.2C294.172 54.18 293.449 55.0667 292.609 55.86C291.862 56.5133 290.905 57.0967 289.739 57.61C288.619 58.17 287.265 58.45 285.679 58.45C283.765 58.45 282.015 58.1467 280.429 57.54C278.889 56.98 277.559 56.1867 276.439 55.16C275.365 54.1333 274.525 52.92 273.919 51.52C273.359 50.12 273.079 48.58 273.079 46.9C273.079 45.22 273.382 43.68 273.989 42.28C274.642 40.88 275.645 39.6667 276.999 38.64C278.352 37.6133 280.079 36.82 282.179 36.26C284.325 35.6533 286.892 35.35 289.879 35.35H295.479C295.292 34.65 294.942 34.02 294.429 33.46C293.962 32.9467 293.309 32.5033 292.469 32.13C291.675 31.71 290.579 31.5 289.179 31.5C288.292 31.5 287.452 31.64 286.659 31.92C285.912 32.2 285.259 32.5267 284.699 32.9C284.045 33.32 283.439 33.7867 282.879 34.3L276.929 24.85C277.955 23.8233 279.215 22.89 280.709 22.05C281.969 21.35 283.509 20.72 285.329 20.16C287.149 19.5533 289.249 19.25 291.629 19.25ZM291.979 47.25C292.865 47.25 293.659 46.7833 294.359 45.85C295.105 44.9167 295.479 43.4 295.479 41.3C293.519 41.3 292.095 41.6733 291.209 42.42C290.322 43.1667 289.879 44.0767 289.879 45.15C289.879 45.6633 290.089 46.1533 290.509 46.62C290.975 47.04 291.465 47.25 291.979 47.25ZM324.187 58.45C322.414 58.45 320.757 58.1 319.217 57.4C317.724 56.6533 316.394 55.5333 315.227 54.04C314.107 52.5467 313.22 50.6333 312.567 48.3C311.914 45.92 311.587 43.12 311.587 39.9V20.3H328.387V39.9C328.387 41.3 328.667 42.35 329.227 43.05C329.834 43.75 330.487 44.1 331.187 44.1C331.887 44.1 332.517 43.75 333.077 43.05C333.684 42.35 333.987 41.3 333.987 39.9V20.3H350.787V57.4H334.687L333.287 53.2C332.68 54.18 331.957 55.0667 331.117 55.86C330.37 56.5133 329.414 57.0967 328.247 57.61C327.127 58.17 325.774 58.45 324.187 58.45ZM381.948 46.2C381.948 47.88 381.598 49.4667 380.898 50.96C380.198 52.4067 379.148 53.69 377.748 54.81C376.395 55.93 374.691 56.8167 372.638 57.47C370.585 58.1233 368.205 58.45 365.498 58.45C362.558 58.45 360.015 58.1 357.868 57.4C355.721 56.7467 353.901 56 352.408 55.16C350.681 54.18 349.211 53.06 347.998 51.8L353.248 43.4C353.948 44.0533 354.741 44.6367 355.628 45.15C356.421 45.6167 357.331 46.0367 358.358 46.41C359.431 46.7367 360.645 46.9 361.998 46.9C362.511 46.9 362.931 46.76 363.258 46.48C363.585 46.2 363.748 45.8733 363.748 45.5C363.748 45.1733 363.398 44.8467 362.698 44.52C362.045 44.1933 361.205 43.82 360.178 43.4C359.198 42.98 358.101 42.49 356.888 41.93C355.721 41.3233 354.625 40.5767 353.598 39.69C352.618 38.7567 351.778 37.6367 351.078 36.33C350.425 34.9767 350.098 33.3667 350.098 31.5C350.098 29.82 350.448 28.2567 351.148 26.81C351.848 25.3167 352.875 24.01 354.228 22.89C355.628 21.77 357.355 20.8833 359.408 20.23C361.461 19.5767 363.841 19.25 366.548 19.25C368.928 19.25 371.051 19.5767 372.918 20.23C374.831 20.8367 376.465 21.5133 377.818 22.26C379.358 23.1 380.735 24.08 381.948 25.2L376.698 33.6C376.138 33.0867 375.508 32.62 374.808 32.2C374.201 31.8267 373.478 31.5 372.638 31.22C371.845 30.94 370.981 30.8 370.048 30.8C369.535 30.8 369.115 30.94 368.788 31.22C368.461 31.5 368.298 31.8267 368.298 32.2C368.298 32.5733 368.625 32.9233 369.278 33.25C369.978 33.53 370.818 33.88 371.798 34.3C372.825 34.72 373.921 35.2333 375.088 35.84C376.301 36.4 377.398 37.1467 378.378 38.08C379.405 38.9667 380.245 40.0867 380.898 41.44C381.598 42.7467 381.948 44.3333 381.948 46.2ZM404.088 24.75L402.513 19.8H402.288V24.75H395.538V8.54999L397.788 8.32499C398.478 8.26499 399.243 8.21999 400.083 8.18999C400.953 8.12999 401.838 8.09999 402.738 8.09999C404.088 8.09999 405.258 8.26499 406.248 8.59499C407.268 8.89499 408.108 9.31499 408.768 9.85499C409.458 10.395 409.968 11.025 410.298 11.745C410.658 12.435 410.838 13.17 410.838 13.95C410.838 14.64 410.718 15.24 410.478 15.75C410.238 16.26 409.983 16.68 409.713 17.01C409.383 17.4 409.008 17.73 408.588 18L411.738 24.75H404.088ZM402.288 15.3H402.738C403.068 15.3 403.368 15.165 403.638 14.895C403.938 14.595 404.088 14.28 404.088 13.95C404.088 13.62 403.938 13.32 403.638 13.05C403.368 12.75 403.068 12.6 402.738 12.6H402.288V15.3ZM385.638 16.65C385.638 14.4 386.088 12.27 386.988 10.26C387.888 8.24999 389.103 6.47999 390.633 4.94999C392.193 3.41999 394.008 2.21999 396.078 1.34999C398.148 0.449992 400.368 -7.39098e-06 402.738 -7.39098e-06C405.108 -7.39098e-06 407.328 0.449992 409.398 1.34999C411.468 2.21999 413.268 3.41999 414.798 4.94999C416.358 6.47999 417.588 8.24999 418.488 10.26C419.388 12.27 419.838 14.4 419.838 16.65C419.838 18.9 419.388 21.03 418.488 23.04C417.588 25.05 416.358 26.82 414.798 28.35C413.268 29.88 411.468 31.095 409.398 31.995C407.328 32.865 405.108 33.3 402.738 33.3C400.368 33.3 398.148 32.865 396.078 31.995C394.008 31.095 392.193 29.88 390.633 28.35C389.103 26.82 387.888 25.05 386.988 23.04C386.088 21.03 385.638 18.9 385.638 16.65ZM415.338 16.65C415.338 14.97 415.008 13.395 414.348 11.925C413.718 10.425 412.833 9.13499 411.693 8.05499C410.583 6.94499 409.263 6.07499 407.733 5.44499C406.203 4.81499 404.538 4.49999 402.738 4.49999C400.938 4.49999 399.258 4.81499 397.698 5.44499C396.168 6.07499 394.833 6.94499 393.693 8.05499C392.583 9.13499 391.713 10.425 391.083 11.925C390.453 13.395 390.138 14.97 390.138 16.65C390.138 18.33 390.453 19.92 391.083 21.42C391.713 22.89 392.583 24.18 393.693 25.29C394.833 26.37 396.168 27.225 397.698 27.855C399.258 28.485 400.938 28.8 402.738 28.8C404.538 28.8 406.203 28.485 407.733 27.855C409.263 27.225 410.583 26.37 411.693 25.29C412.833 24.18 413.718 22.89 414.348 21.42C415.008 19.92 415.338 18.33 415.338 16.65Z" fill="currentColor"/></svg><span class="story-mark-tagline">The Art of Everyday Luxury</span></div>
+    <p class="story-welcome">BUTTONHAUS는 욕실과 생활 공간을 위한 맞춤 설계와 프리미엄 소재 시공을 선보이는 인테리어 아틀리에입니다.</p>
+    <div class="story-divider"></div>
+    <a href="#contact" class="btn story-enquire">ENQUIRE</a>
+  </div>
+  <div class="story-heading reveal">
+    <h2>욕조와 <em>피팅</em></h2>
+    <p>작은 디테일까지 수천 시간의 정성으로 완성한 완벽한 소재의 아름다움. 저희의 최상급 럭셔리 레지던스를 만나보세요.</p>
+  </div>
+  <div class="selector reveal">
+    <div class="selector-options" id="bathSelector">
+      <div class="selector-option active" style="background-image:url('bath-detail-1.jpg')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="selector-info"><div class="selector-main">정교한 타일링</div><div class="selector-sub">이음새 없는 마감의 디테일</div></div>
+        </div>
+      </div>
+      <div class="selector-option" style="background-image:url('bath-view-1.jpg')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3Z"/><path d="M3 12V7a2 2 0 0 1 2-2h1"/><path d="M7 19v2"/><path d="M17 19v2"/></svg></div>
+          <div class="selector-info"><div class="selector-main">프리스탠딩 욕조</div><div class="selector-sub">밝고 여유로운 욕실 공간</div></div>
+        </div>
+      </div>
+      <div class="selector-option" style="background-image:url('bath-detail-2.jpg')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 21v-3"/><path d="M15 21v-3"/></svg></div>
+          <div class="selector-info"><div class="selector-main">세면대 디테일</div><div class="selector-sub">섬세하게 큐레이션된 어메니티</div></div>
+        </div>
+      </div>
+      <div class="selector-option" style="background-image:url('bath-view-2.jpg')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 7.5 6 12a6 6 0 0 1-12 0c0-4.5 6-12 6-12Z"/></svg></div>
+          <div class="selector-info"><div class="selector-main">우드 &amp; 베슬 세면대</div><div class="selector-sub">자연 소재의 따뜻한 조화</div></div>
+        </div>
+      </div>
+      <div class="selector-option" style="background-image:url('bath-detail-3.jpg')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 4 0 0 0 16 0H4Z"/><path d="M18 6v3"/><path d="M15 6h6"/></svg></div>
+          <div class="selector-info"><div class="selector-main">베슬 세면대 디테일</div><div class="selector-sub">미니멀한 실루엣의 완성도</div></div>
+        </div>
+      </div>
+      <div class="selector-option" style="background-image:url('bath-view-3.png')">
+        <div class="selector-shadow"></div>
+        <div class="selector-label">
+          <div class="selector-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13V6a1 1 0 0 1 1-1h7a7 7 0 0 1 7 7v1a7 7 0 0 1-7 7Z"/><path d="M4 13c6 0 10-4 10-10"/></svg></div>
+          <div class="selector-info"><div class="selector-main">프라이빗 가든 스파</div><div class="selector-sub">자연을 들인 프라이빗 욕실</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="line-scroll-svg" id="lineScrollSvg" viewBox="0 0 1278 2319" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path id="lineScrollPath" d="M640 0C640 140 900 260 900 400C900 540 380 660 380 800C380 940 900 1060 900 1200C900 1340 380 1460 380 1600C380 1740 900 1860 900 2000C900 2140 640 2180 640 2319" stroke="var(--ink)" stroke-width="2.5"/>
+</svg>
+</div>
+
+<div class="stack-bound">
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="svc-side reveal">
+        <span class="eyebrow">Core Services</span>
+        <div class="svc-side-heading">완성도를 만드는<br>버튼하우스의 기준</div>
+      </div>
+      <div class="svc-main">
+        <h2 class="reveal">Trusted Materials, Timeless Design.</h2>
+        <div class="svc-grid">
+          <div class="svc-card reveal">
+            <div class="svc-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18 24 6l14 12-14 24z"/><path d="M10 18h28M18 18 24 6l6 12M18 18l6 24M30 18l-6 24"/></svg></div>
+            <h3>프리미엄 자재 시공</h3>
+            <p>검증된 해외·국내 브랜드 자재와 숙련 시공팀이 결합해 오래가는 완성도를 만듭니다.</p>
+          </div>
+          <div class="svc-card reveal">
+            <div class="svc-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v6"/><circle cx="24" cy="14" r="3"/><path d="M24 17 12 42M24 17l12 25"/><path d="M15 34h18"/></svg></div>
+            <h3>비스포크 설계</h3>
+            <p>공간 구조와 생활 패턴을 분석해 채광, 동선, 수납까지 고려한 1:1 맞춤 설계를 제안합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="stack-bound">
+<section class="materials" id="materials">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Material Library</span>
+      <h2>손끝에서 완성되는 <em>질감</em></h2>
+    </div>
+    <div class="tile-slider reveal" id="tileSlider">
+      <div class="tile-track" id="tileTrack">
+        <div class="tile-item"><img src="tile-1.jpeg" alt="화이트 그리드 타일" loading="lazy"><div class="tile-caption"><div class="name">White Grid</div><div class="desc">화이트 그리드 타일</div></div></div>
+        <div class="tile-item"><img src="tile-2.jpeg" alt="골드 베인 대리석" loading="lazy"><div class="tile-caption"><div class="name">Gold Vein Marble</div><div class="desc">골드 베인 대리석</div></div></div>
+        <div class="tile-item"><img src="tile-3.jpeg" alt="화이트 글로시 타일" loading="lazy"><div class="tile-caption"><div class="name">White Gloss</div><div class="desc">화이트 글로시 타일</div></div></div>
+        <div class="tile-item"><img src="tile-4.jpeg" alt="민트 헥사곤 모자이크" loading="lazy"><div class="tile-caption"><div class="name">Mint Hexagon</div><div class="desc">민트 헥사곤 모자이크</div></div></div>
+        <div class="tile-item"><img src="tile-5.jpeg" alt="콘크리트 그레이 타일" loading="lazy"><div class="tile-caption"><div class="name">Concrete Grey</div><div class="desc">콘크리트 그레이 타일</div></div></div>
+        <div class="tile-item"><img src="tile-6.jpeg" alt="차콜 스톤 타일" loading="lazy"><div class="tile-caption"><div class="name">Charcoal Stone</div><div class="desc">차콜 스톤 타일</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-1.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">White Grid</div><div class="desc">화이트 그리드 타일</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-2.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">Gold Vein Marble</div><div class="desc">골드 베인 대리석</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-3.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">White Gloss</div><div class="desc">화이트 글로시 타일</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-4.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">Mint Hexagon</div><div class="desc">민트 헥사곤 모자이크</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-5.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">Concrete Grey</div><div class="desc">콘크리트 그레이 타일</div></div></div>
+        <div class="tile-item" aria-hidden="true"><img src="tile-6.jpeg" alt="" loading="lazy"><div class="tile-caption"><div class="name">Charcoal Stone</div><div class="desc">차콜 스톤 타일</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="testimonials">
+  <div class="decor-icon decor-leaf" data-parallax="0.1" data-rotate="-14" aria-hidden="true"></div>
+  <div class="decor-icon decor-oakleaf" data-parallax="0.32" data-rotate="18" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="t-wrap reveal">
+      <span class="eyebrow">Client Voices</span>
+      <div class="t-track" style="margin-top:34px">
+        <div class="t-slides" id="tSlides">
+          <div class="t-slide">
+            <blockquote>"단순한 시공이 아니라, 저희 가족의 생활 방식을 먼저 이해하고 제안해주셔서 신뢰가 갔습니다."</blockquote>
+            <div class="t-meta"><div class="who"><b>김서연</b>한남 프라이빗 레지던스</div></div>
+          </div>
+          <div class="t-slide">
+            <blockquote>"소재 하나하나에 대한 설명이 명확했고, 준공 후 관리까지 세심하게 챙겨주셔서 만족스러웠습니다."</blockquote>
+            <div class="t-meta"><div class="who"><b>이도현</b>청담 펜트하우스</div></div>
+          </div>
+          <div class="t-slide">
+            <blockquote>"호텔 스위트 욕실 리노베이션을 맡겼는데, 투숙객 평점이 실제로 눈에 띄게 올랐습니다."</blockquote>
+            <div class="t-meta"><div class="who"><b>박지민</b>세인트 클로브 호텔 총괄</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="t-nav">
+        <button id="tPrev">←</button>
+        <div class="t-dots" id="tDots"></div>
+        <button id="tNext">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans">
+  <div class="decor-icon decor-soap" data-parallax="0.12" data-rotate="7" aria-hidden="true"></div>
+  <div class="decor-icon decor-candle" data-parallax="0.25" data-rotate="-6" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Pricing Plan</span>
+      <h2>당신의 공간에 맞는 <em>플랜</em></h2>
+    </div>
+    <div class="segmented reveal">
+      <div class="seg-track">
+        <div class="seg-thumb" id="segThumb"></div>
+        <button class="active" data-mode="residence">레지던스</button>
+        <button data-mode="commercial">상업 공간</button>
+      </div>
+    </div>
+    <div class="plan-grid">
+      <div class="plan reveal">
+        <span class="tier">Essential</span>
+        <h3>에센셜</h3>
+        <div class="price-set" data-mode="residence"><div class="price">₩ 1,800<span>만 원부터</span></div><div class="price-sub">전용 20평형 기준 · 욕실 1개소</div></div>
+        <div class="price-set hidden" data-mode="commercial"><div class="price">₩ 4,200<span>만 원부터</span></div><div class="price-sub">상업 공간 화장실 2개소 기준</div></div>
+        <ul><li>공간 실측 &amp; 기본 설계</li><li>표준 소재 라인업 3종</li><li>단일 PM 배정</li><li>준공 후 3개월 점검</li></ul>
+        <a href="#contact" class="btn">상담 요청</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="tier">Signature</span>
+        <h3>시그니처 <span class="plan-badge">🔥 인기</span></h3>
+        <div class="price-set" data-mode="residence"><div class="price">₩ 4,500<span>만 원부터</span></div><div class="price-sub">전용 34평형 기준 · 욕실 2개소</div></div>
+        <div class="price-set hidden" data-mode="commercial"><div class="price">₩ 9,800<span>만 원부터</span></div><div class="price-sub">상업 공간 화장실 4개소 기준</div></div>
+        <ul><li>맞춤 설계 &amp; 3D 렌더링</li><li>프리미엄 소재 큐레이션</li><li>전담 PM &amp; 주간 리포트</li><li>준공 후 1년 애프터케어</li></ul>
+        <a href="#contact" class="btn gold">상담 요청</a>
+      </div>
+      <div class="plan reveal">
+        <span class="tier">Bespoke Atelier</span>
+        <h3>비스포크</h3>
+        <div class="price-set" data-mode="residence"><div class="price">별도 <span>협의</span></div><div class="price-sub">단독주택 · 펜트하우스 등 전면 시공</div></div>
+        <div class="price-set hidden" data-mode="commercial"><div class="price">별도 <span>협의</span></div><div class="price-sub">호텔 · 리조트 전관 시공</div></div>
+        <ul><li>전면 맞춤 설계 &amp; 해외 소재 소싱</li><li>디자이너 상주 시공 관리</li><li>전용 애프터케어 라인</li><li>준공 후 정기 유지보수 계약</li></ul>
+        <a href="#contact" class="btn">상담 요청</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logo-marquee">
+  <div class="lm-track" id="lmTrack">
+    <div class="lm-group">
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+    </div>
+    <div class="lm-group" aria-hidden="true">
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+      <svg class="lm-logo" viewBox="0 0 420 59" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg><div class="lm-dot" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">BOOK A <em>CONSULTATION</em></h2>
+    <div class="cta-grid">
+      <p class="reveal">담당 디자이너가 1:1로 배정되어 공간 진단부터 예산까지 함께 설계합니다. 상담은 무료로 진행됩니다.</p>
+      <form class="form reveal" id="consultForm">
+        <input type="hidden" name="access_key" value="32c33f9c-fa22-4bc6-8da4-5840b4c5f112">
+        <input type="hidden" name="subject" value="BUTTONHAUS 상담 신청">
+        <input type="hidden" name="from_name" value="BUTTONHAUS 웹사이트">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="row2">
+          <input type="text" name="name" placeholder="이름" required>
+          <input type="tel" name="phone" placeholder="연락처" required>
+        </div>
+        <div class="row2">
+          <select name="space_type" required>
+            <option value="" disabled selected>공간 유형</option>
+            <option>프라이빗 레지던스</option>
+            <option>호텔 · 리조트</option>
+            <option>스파 &amp; 웰니스</option>
+            <option>기타</option>
+          </select>
+          <select name="size" required>
+            <option value="" disabled selected>평형대</option>
+            <option>20평 미만</option>
+            <option>20 ~ 34평</option>
+            <option>34 ~ 50평</option>
+            <option>50평 이상</option>
+          </select>
+        </div>
+        <textarea rows="3" name="message" placeholder="희망 시공 내용을 간단히 남겨주세요"></textarea>
+        <button type="submit" class="btn gold">상담 신청하기</button>
+        <span class="form-note">영업일 기준 1~2일 내 담당 디자이너가 연락드립니다.</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <svg class="logo" viewBox="0 0 420 59" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Button Haus"><use href="#bh-mark"></use></svg>
+        <p>욕실 전문 인테리어 · 생활 공간 브랜드. 물과 빛, 소재가 조화를 이루는 공간을 설계합니다.</p>
+      </div>
+      <div class="f-links"><h5>Menu</h5><a href="#services">서비스</a><a href="#materials">소재</a><a href="#plans">견적</a></div>
+      <div class="f-links"><h5>Studio</h5><a href="#">서울 강남구 도산대로 45</a><a href="#">평일 10:00 – 19:00</a><a href="#">주말 · 공휴일 예약제</a></div>
+      <div class="f-links"><h5>Contact</h5><a href="tel:0212345678">02-1234-5678</a><a href="mailto:hello@buttonhaus.kr">hello@buttonhaus.kr</a><a href="#">Instagram</a><a href="#">Pinterest</a></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 BUTTONHAUS. All rights reserved.</span>
+      <span>Bespoke Bathroom &amp; Living Space Atelier</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const consultForm=document.getElementById('consultForm');
+if(consultForm){
+  consultForm.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const btn=consultForm.querySelector('.btn');
+    btn.disabled=true;
+    btn.textContent='전송 중...';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify(Object.fromEntries(new FormData(consultForm)))
+      });
+      const data=await res.json();
+      if(data.success){
+        btn.textContent='신청이 접수되었습니다 ✓';
+        consultForm.reset();
+      }else{
+        throw new Error(data.message||'submit failed');
+      }
+    }catch(err){
+      btn.textContent='전송 실패, 다시 시도해주세요';
+      btn.disabled=false;
+    }
+  });
+}
+
+const header=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40));
+
+// switch header text to brown while it's over a cream/light-background section
+const lightSections=[...document.querySelectorAll('.philosophy, .testimonials, .plans')];
+function updateHeaderTone(){
+  const y=header.getBoundingClientRect().height/2||45;
+  const onLight=lightSections.some(el=>{
+    const r=el.getBoundingClientRect();
+    return r.top<=y&&r.bottom>=y;
+  });
+  header.classList.toggle('on-light',onLight);
+}
+window.addEventListener('scroll',updateHeaderTone,{passive:true});
+window.addEventListener('resize',updateHeaderTone);
+updateHeaderTone();
+
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+(function(){
+  const slider=document.getElementById('tileSlider');
+  const track=document.getElementById('tileTrack');
+  if(!slider||!track) return;
+  const baseSpeed=0.6;
+  let speed=baseSpeed,target=baseSpeed,x=0,half=0;
+  function measure(){ half=track.scrollWidth/2; }
+  measure();
+  window.addEventListener('resize',measure);
+  slider.addEventListener('mouseenter',()=>{target=0.03});
+  slider.addEventListener('mouseleave',()=>{target=baseSpeed});
+  function frame(){
+    speed+=(target-speed)*0.045;
+    x-=speed;
+    if(-x>=half) x+=half;
+    track.style.transform='translateX('+x+'px)';
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+const counters=document.querySelectorAll('.count');
+const cio=new IntersectionObserver((entries)=>{entries.forEach(e=>{
+  if(e.isIntersecting){
+    const el=e.target,target=+el.dataset.target,dur=1400,start=performance.now();
+    function tick(t){const p=Math.min((t-start)/dur,1);el.textContent=Math.floor(p*target);if(p<1)requestAnimationFrame(tick);else el.textContent=target}
+    requestAnimationFrame(tick);cio.unobserve(el);
+  }
+})},{threshold:.4});
+counters.forEach(c=>cio.observe(c));
+
+const tSlides=document.getElementById('tSlides'),tDotsWrap=document.getElementById('tDots');
+const slideCount=document.querySelectorAll('.t-slide').length;
+let tIndex=0;
+for(let i=0;i<slideCount;i++){const d=document.createElement('span');if(i===0)d.classList.add('active');d.addEventListener('click',()=>goTo(i));tDotsWrap.appendChild(d)}
+function goTo(i){tIndex=(i+slideCount)%slideCount;tSlides.style.transform=`translateX(-${tIndex*100}%)`;[...tDotsWrap.children].forEach((d,j)=>d.classList.toggle('active',j===tIndex))}
+document.getElementById('tPrev').addEventListener('click',()=>goTo(tIndex-1));
+document.getElementById('tNext').addEventListener('click',()=>goTo(tIndex+1));
+let tTimer=setInterval(()=>goTo(tIndex+1),6000);
+document.querySelector('.t-wrap').addEventListener('mouseenter',()=>clearInterval(tTimer));
+document.querySelector('.t-wrap').addEventListener('mouseleave',()=>tTimer=setInterval(()=>goTo(tIndex+1),6000));
+
+function parsePriceNumber(text){
+  const m=text.match(/[\d,]+/);
+  return m?parseInt(m[0].replace(/,/g,''),10):null;
+}
+function animatePriceNumber(el,from,to,duration=450){
+  const start=performance.now();
+  function step(now){
+    const t=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-t,3);
+    const val=Math.round(from+(to-from)*eased);
+    el.childNodes[0].nodeValue='₩ '+val.toLocaleString('ko-KR');
+    if(t<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const segBtns=document.querySelectorAll('.seg-track button'),segThumb=document.getElementById('segThumb');
+segBtns.forEach((btn,i)=>{
+  btn.addEventListener('click',()=>{
+    segBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    segThumb.style.transform=`translateX(${i*100}%)`;
+    document.querySelectorAll('.plan').forEach(plan=>{
+      const oldSet=plan.querySelector('.price-set:not(.hidden)');
+      const newSet=plan.querySelector(`.price-set[data-mode="${btn.dataset.mode}"]`);
+      if(!oldSet||!newSet||oldSet===newSet)return;
+      const oldPriceEl=oldSet.querySelector('.price'),newPriceEl=newSet.querySelector('.price');
+      const oldVal=parsePriceNumber(oldPriceEl.childNodes[0].nodeValue);
+      const newVal=parsePriceNumber(newPriceEl.childNodes[0].nodeValue);
+      plan.querySelectorAll('.price-set').forEach(ps=>ps.classList.toggle('hidden',ps.dataset.mode!==btn.dataset.mode));
+      if(oldVal!=null&&newVal!=null)animatePriceNumber(newPriceEl,oldVal,newVal);
+    });
+  });
+});
+
+// interactive selector: a row of image panels where clicking one expands it
+// (flex-grow + background-size zoom) while the rest collapse to slim tabs.
+// Panels stagger-fade in once the selector scrolls into view.
+(function(){
+  const root=document.getElementById('bathSelector');
+  if(!root) return;
+  const opts=Array.from(root.querySelectorAll('.selector-option'));
+  if(!opts.length) return;
+
+  opts.forEach((el,i)=>{
+    el.addEventListener('click',()=>{
+      opts.forEach((o,j)=>o.classList.toggle('active',j===i));
+    });
+  });
+
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      opts.forEach((el,i)=>setTimeout(()=>el.classList.add('in'),180*i));
+      io.unobserve(entry.target);
+    });
+  },{threshold:.3});
+  io.observe(root);
+})();
+
+// scroll-linked line: progress goes from 0, when the wrapper's top (right
+// after the hero section) crosses the viewport's vertical center, to 1, when
+// the philosophy wrapper's bottom crosses the viewport's BOTTOM edge
+// (i.e. "Our Product" is just about to peek in). Finishing that early -- well
+// before the boundary is actually prominent on screen -- guarantees the line
+// is always already complete (sitting right at the boundary, since the SVG's
+// height always matches the wrapper's) by the time a viewer can see it,
+// instead of visibly racing to catch up.
+//
+// The reveal is driven by the path's Y-POSITION, not raw arc-length: this
+// hand-drawn curve has uneven arc-length-per-pixel-of-height (tight bends
+// eat up length fast, the long straight-ish stretches barely do), so an
+// arc-length-linear reveal visually "finishes" early and then sits static
+// for the rest of the scroll. Sampling the curve up front and reveal-by-Y
+// keeps the drawing pace visually even across the whole scroll range.
+(function(){
+  const wrap=document.getElementById('lineScroll');
+  const svg=document.getElementById('lineScrollSvg');
+  const path=document.getElementById('lineScrollPath');
+  if(!wrap||!svg||!path) return;
+
+  const len=path.getTotalLength();
+  path.style.strokeDasharray=String(len);
+
+  const SAMPLES=300;
+  const samples=[];
+  for(let i=0;i<=SAMPLES;i++){
+    const l=len*i/SAMPLES;
+    samples.push({l,y:path.getPointAtLength(l).y});
+  }
+  const yStart=samples[0].y;
+  const yEnd=samples[samples.length-1].y;
+
+  function lengthAtY(targetY){
+    let lo=0,hi=samples.length-1;
+    if(targetY<=samples[0].y)return samples[0].l;
+    if(targetY>=samples[hi].y)return samples[hi].l;
+    while(lo<hi-1){
+      const mid=(lo+hi)>>1;
+      if(samples[mid].y<targetY)lo=mid;else hi=mid;
+    }
+    const a=samples[lo],b=samples[hi];
+    const t=(targetY-a.y)/((b.y-a.y)||1);
+    return a.l+(b.l-a.l)*t;
+  }
+
+  function resize(){
+    svg.style.height=wrap.offsetHeight+'px';
+    render();
+  }
+  function render(){
+    const startAbsTop=wrap.getBoundingClientRect().top+window.scrollY;
+    const wrapAbsBottom=wrap.getBoundingClientRect().bottom+window.scrollY;
+    const h=window.innerHeight;
+    const scrollAtStart=startAbsTop-h/2;
+    const scrollAtEnd=wrapAbsBottom-h;
+    const total=Math.max(scrollAtEnd-scrollAtStart,1);
+    const progress=Math.min(Math.max((window.scrollY-scrollAtStart)/total,0),1);
+    const targetY=yStart+progress*(yEnd-yStart);
+    const drawn=lengthAtY(targetY);
+    path.style.strokeDashoffset=String(len-drawn);
+  }
+
+  window.addEventListener('scroll',render,{passive:true});
+  window.addEventListener('resize',resize);
+  // Catches content-driven height changes resize wouldn't (web font swap,
+  // image-slot load) so the SVG's height never goes stale relative to wrap's
+  // actual height -- otherwise the path's endpoint can drift off the true
+  // "Our Product" boundary.
+  new ResizeObserver(resize).observe(wrap);
+  resize();
+})();
+
+// scroll-expand hero: hijacks scroll/touch to grow the media box and part the
+// title until fully expanded, then releases normal page scroll.
+(function(){
+  const bg=document.getElementById('sxBg');
+  const media=document.getElementById('sxMedia');
+  if(!media) return;
+
+  let progress=0;
+  let expanded=false;
+  let touchStartY=0;
+  let isMobile=window.innerWidth<768;
+  window.addEventListener('resize',()=>{isMobile=window.innerWidth<768});
+
+  function apply(p){
+    progress=Math.min(Math.max(p,0),1);
+    const w=300+progress*(isMobile?650:1250);
+    const h=400+progress*(isMobile?200:400);
+    media.style.width=w+'px';
+    media.style.height=h+'px';
+    bg.style.opacity=String(1-progress);
+    if(progress>=1){
+      expanded=true;
+    }
+  }
+
+  function onWheel(e){
+    if(expanded&&e.deltaY<0&&window.scrollY<=5){
+      expanded=false;
+      e.preventDefault();
+    }else if(!expanded){
+      e.preventDefault();
+      apply(progress+e.deltaY*0.0009);
+    }
+  }
+  function onTouchStart(e){touchStartY=e.touches[0].clientY}
+  function onTouchMove(e){
+    if(!touchStartY)return;
+    const touchY=e.touches[0].clientY;
+    const deltaY=touchStartY-touchY;
+    if(expanded&&deltaY<-20&&window.scrollY<=5){
+      expanded=false;
+      e.preventDefault();
+    }else if(!expanded){
+      e.preventDefault();
+      const factor=deltaY<0?0.008:0.005;
+      apply(progress+deltaY*factor);
+      touchStartY=touchY;
+    }
+  }
+  function onTouchEnd(){touchStartY=0}
+  function onScroll(){if(!expanded)window.scrollTo(0,0)}
+
+  window.addEventListener('wheel',onWheel,{passive:false});
+  window.addEventListener('touchstart',onTouchStart,{passive:false});
+  window.addEventListener('touchmove',onTouchMove,{passive:false});
+  window.addEventListener('touchend',onTouchEnd);
+  window.addEventListener('scroll',onScroll);
+
+  const homeLogo=document.querySelector('.header-logo');
+  if(homeLogo){
+    homeLogo.addEventListener('click',()=>{
+      expanded=false;
+      apply(0);
+      window.scrollTo(0,0);
+    });
+  }
+
+  // in-page anchor links (nav, footer, CTA buttons): handle the scroll ourselves
+  // instead of relying on the browser's native fragment-jump, which silently
+  // no-ops on this page; also marks the hero as expanded so onScroll's guard
+  // doesn't fight the manual scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    if(link===homeLogo)return;
+    const id=link.getAttribute('href').slice(1);
+    const target=id&&document.getElementById(id);
+    if(!target)return;
+    link.addEventListener('click',(e)=>{
+      e.preventDefault();
+      expanded=true;
+      target.scrollIntoView({behavior:'instant',block:'start'});
+      history.pushState(null,'','#'+id);
+    });
+  });
+
+  apply(0);
+})();
+
+// decorative icons: parallax drift as the page scrolls, each at its own speed
+(function(){
+  const icons=[...document.querySelectorAll('.decor-icon[data-parallax]')];
+  if(!icons.length)return;
+  let ticking=false;
+  function update(){
+    const vh=window.innerHeight;
+    icons.forEach(el=>{
+      const speed=parseFloat(el.dataset.parallax)||0.15;
+      const rotate=parseFloat(el.dataset.rotate)||0;
+      const rect=el.getBoundingClientRect();
+      const elCenter=rect.top+rect.height/2;
+      const offset=(vh/2-elCenter)*speed;
+      el.style.transform=`translateY(${-offset}px) rotate(${rotate}deg)`;
+    });
+    ticking=false;
+  }
+  function onScroll(){
+    if(!ticking){ticking=true;requestAnimationFrame(update)}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  update();
+})();
+
+// logo marquee: moves only while the page is being scrolled, speed/direction driven by scroll velocity (ported from framer-motion useVelocity/useScroll pattern)
+(function(){
+  const track = document.getElementById('lmTrack');
+  const group = track && track.querySelector('.lm-group');
+  if(!track || !group) return;
+
+  let groupWidth = group.getBoundingClientRect().width;
+  window.addEventListener('resize', () => { groupWidth = group.getBoundingClientRect().width; });
+
+  let x = 0;
+  let lastScrollY = window.scrollY;
+  let smoothVel = 0;
+  let lastTime = performance.now();
+
+  function frame(now){
+    const dt = Math.min((now - lastTime) / 1000, 0.05);
+    lastTime = now;
+
+    const scrollY = window.scrollY;
+    const instVel = (scrollY - lastScrollY) / Math.max(dt, 0.001);
+    lastScrollY = scrollY;
+    smoothVel += (instVel - smoothVel) * Math.min(1, dt * 8);
+
+    const moveBy = smoothVel * dt * 0.6;
+
+    x -= moveBy;
+    if(groupWidth){
+      if(x <= -groupWidth) x += groupWidth;
+      if(x > 0) x -= groupWidth;
+    }
+    track.style.transform = `translateX(${x}px)`;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
