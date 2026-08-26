@@ -1,5 +1,8 @@
 .DS_Store
 
+# local backup of pre-optimization original images/video, not needed for the site
+originals/
+
 # input/ holds AI-reference and source assets not used by the site.
 # Only the SVGs actually referenced in ButtonHaus.html are tracked.
 input/*
