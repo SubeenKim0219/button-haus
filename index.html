@@ -110,8 +110,11 @@ header.on-light .btn.light:hover{background:var(--ink);color:var(--cream)}
 .selector-sub{font-size:12.5px;color:rgba(239,233,221,.7);margin-top:2px;opacity:0;transform:translateX(20px);transition:opacity .6s,transform .6s}
 .selector-option.active .selector-main,.selector-option.active .selector-sub{opacity:1;transform:translateX(0)}
 @media(max-width:640px){
-  .selector-options{height:280px;gap:8px}
-  .selector-label{bottom:12px;padding:0 10px}
+  .selector-options{height:280px;gap:6px}
+  .selector-option{min-width:38px}
+  .selector-icon{width:34px;height:34px}
+  .selector-icon svg{width:15px;height:15px}
+  .selector-label{bottom:12px;padding:0 8px}
   .selector-main{font-size:14px}
 }
 .philosophy .stats{margin-top:150px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(59,44,32,.14)}
