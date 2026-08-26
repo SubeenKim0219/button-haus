@@ -873,7 +873,7 @@ segBtns.forEach((btn,i)=>{
       e.preventDefault();
     }else if(!expanded){
       e.preventDefault();
-      const factor=deltaY<0?0.008:0.005;
+      const factor=isMobile?(deltaY<0?0.02:0.014):(deltaY<0?0.008:0.005);
       apply(progress+deltaY*factor);
       touchStartY=touchY;
     }
